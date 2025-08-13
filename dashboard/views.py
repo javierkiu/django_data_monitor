@@ -1,10 +1,12 @@
 from django.shortcuts import render
 import requests
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from django.http import HttpResponse
 
+@login_required
 def index(request):
 
     response = requests.get(settings.API_URL) 
